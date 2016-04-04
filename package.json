@@ -1,12 +1,16 @@
 {
   "name": "redux-on-state-change",
   "version": "1.0.0-beta",
-  "description": "Extremely simple middleware to react to Redux state changes",
+  "description": "Extremely simple middleware to respond to Redux state changes.",
   "main": "lib/index.js",
   "scripts": {
     "build": "babel src --out-dir lib",
     "publish": "rimraf lib && npm run build",
     "test": "mocha --recursive --compilers js:babel/register -r test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/franjohn21/redux-on-state-change.git"
   },
   "keywords": [
     "redux",
