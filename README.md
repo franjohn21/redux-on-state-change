@@ -1,6 +1,6 @@
 # On State Change middleware for Redux
 
-Extremely simple middleware to respond to Redux state changes. Keep your reducers pure. Keep unnecessary logic out of your React components. 
+Keep your reducers pure. Keep unnecessary logic out of your React components. 
 
 ## You may find this package useful if..
 - You currently have something like this in your React components:
