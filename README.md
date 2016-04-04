@@ -1,6 +1,6 @@
-# Redux On State Change Middleware
+# On State Change middleware for Redux
 
-Keep your reducers pure. Keep unnecessary logic out of your React components. Extremely simple middleware to react to Redux state changes.
+Extremely simple middleware to respond to Redux state changes. Keep your reducers pure. Keep unnecessary logic out of your React components. 
 
 ## You may find this package useful if..
 - You currently have something like this in your React components:
@@ -21,18 +21,31 @@ Keep your reducers pure. Keep unnecessary logic out of your React components. Ex
     break
   }
   ```
+---
 
 Now you can use this package as side-effects middleware intended for handling functionality unrelated to your reducer or your views.
 
 ```
 import onStateChange from 'redux-on-state-change'
+import { createStore, applyMiddleware } from 'redux'
+import myFunc from './my-func'
+
 applyMiddleware(...<your other middleware>, onStateChange(myFunc))(createStore)
 
 ```
-d
+
 Where `myFunc` look something like this:
+
 ```
-const myFunc = (prevState, nextState, action) => {
+const myFunc = (prevState, nextState, action, dispatch) => {
+  if (prevState.routing.path !== nextState.routing.path) {
+    // ... your logic here
+  }
+}
+```
+or
+```
+const myFunc = (prevState, nextState, action, dispatch) => {
   switch (action.type) {
     case 'SOMETHING_HAPPENED':
     // ... your logic here
@@ -42,4 +55,11 @@ const myFunc = (prevState, nextState, action) => {
 ```
 
 
+API
+---
+The function you pass to onStateChange will receive the following:
 
+- **prevState** - The state of the Redux store prior to the action being dispatched
+- **nextState** - The state of the Redux store after the action was dispatched
+- **action** - The action that was dispatched
+- **dispatch** - If you choose to dispatch a new action you can use this. Although the goal of this package is not to encompass everything that you get with other redux side-effects  (e.g. async).
