@@ -16,13 +16,14 @@ Keep your reducers pure. Keep unnecessary logic out of your React components.
 
   ```
   switch(action.type) {
-    case 'SOMETHING_HAPPENED'
+    case SOMETHING_HAPPENED:
     // Do something unrelated to this reducer, e.g. Event tracking
     break
   }
   ```
 ---
 
+## Usage
 Now you can use this package as side-effects middleware intended for handling functionality unrelated to your reducer or your views.
 
 ```
@@ -62,4 +63,8 @@ The function you pass to onStateChange will receive the following:
 - **prevState** - The state of the Redux store prior to the action being dispatched
 - **nextState** - The state of the Redux store after the action was dispatched
 - **action** - The action that was dispatched
-- **dispatch** - If you choose to dispatch a new action you can use this. Although the goal of this package is not to encompass everything that you get with other redux side-effects  (e.g. async).
+- **dispatch** - If you choose to dispatch a new action you can use this.
+
+Motivation
+---
+The goal of this package is not to encompass everything that you get with other redux side-effects libraries (e.g. async). It's simply to have a place to handle tangentially related logic that doesn't belong in components or reducers but relies on knowing about state or action updates.
