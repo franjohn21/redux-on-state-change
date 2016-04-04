@@ -1,4 +1,4 @@
-# On State Change middleware for Redux
+# Observe Redux state changes
 
 Keep your reducers pure. Keep unnecessary logic out of your React components. 
 

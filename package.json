@@ -15,7 +15,9 @@
   "keywords": [
     "redux",
     "middleware",
-    "redux-middleware"
+    "redux-middleware",
+    "observables",
+    "state"
   ],
   "author": "Francis John",
   "license": "MIT",
