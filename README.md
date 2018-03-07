@@ -1,6 +1,6 @@
 # Observe Redux state changes
 
-Keep your reducers pure. Keep unnecessary logic out of your React components. 
+Keep your reducers pure. Keep unnecessary logic out of your React components.
 
 ## You may find this package useful if..
 - You currently have something like this in your React components:
@@ -54,6 +54,25 @@ const myFunc = (prevState, nextState, action, dispatch) => {
   }
 }
 ```
+
+You can also pass an array of functions, useful in case you want to separate the different functionalities
+
+```
+import onStateChange from 'redux-on-state-change'
+import { createStore, applyMiddleware } from 'redux'
+import myFuncForHandlingTracking from './tracking'
+import myFuncForHandlingErrors from './error'
+
+applyMiddleware(...<your other middleware>,
+  onStateChange([
+    myFuncForHandlingTracking,
+    myFuncForHandlingErrors
+    ])
+)(createStore);
+
+```
+
+
 
 
 API
