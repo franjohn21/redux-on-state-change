@@ -1,6 +1,6 @@
 {
   "name": "redux-on-state-change",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Extremely simple middleware to respond to Redux state changes.",
   "main": "lib/index.js",
   "scripts": {
