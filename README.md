@@ -64,6 +64,7 @@ The function you pass to onStateChange will receive the following:
 - **nextState** - The state of the Redux store after the action was dispatched
 - **action** - The action that was dispatched
 - **dispatch** - If you choose to dispatch a new action you can use this.
+- **store** - Full redux store
 
 Motivation
 ---
